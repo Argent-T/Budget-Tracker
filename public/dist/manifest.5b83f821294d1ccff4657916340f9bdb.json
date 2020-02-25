@@ -1,0 +1,23 @@
+{
+  "icons": [
+    {
+      "src": "assets/icons/icon_512x512.aba4c78c1c153a3d17c96ababc7b4744.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon_192x192.445c9ca89e75dc2245d73731337e8e51.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "Budget App",
+  "short_name": "budget",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/",
+  "description": "An application that allows you to track your income and expenses.",
+  "background_color": "#01579b",
+  "theme_color": "#ffffff",
+  "theme-color": "#ffffff"
+}

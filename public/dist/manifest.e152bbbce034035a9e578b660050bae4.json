@@ -1,0 +1,11 @@
+{
+  "name": "Budget App",
+  "short_name": "budget",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/",
+  "description": "An application that allows you to track your income and expenses.",
+  "background_color": "#01579b",
+  "theme_color": "#ffffff",
+  "theme-color": "#ffffff"
+}
