@@ -2,8 +2,10 @@ const FILES_TO_CACHE = [
     "/",
     "/index.html",
     "/dist/db.bundle.js",
-    "/dist/app.bundle.js",
-    "/style.css"
+    "/dist/index.bundle.js",
+    "/style.css",
+    "../models/transaction.js",
+    "../routes/api.js"
 ];
 
 
@@ -28,11 +30,21 @@ self.addEventListener("activate", event => {
       return Promise.all(cachesToDelete.map(cacheToDelete => {
         return caches.delete(cacheToDelete);
       }));
-    }).then(() => self.clients.claim())
+    }).then(() => self.clients.claim()).catch(function(err){
+      console.log(err)
+    })
   );
 });
 
 self.addEventListener("fetch", event => {
+  
+  if(event.request.method !== "GET"){
+    return fetch(event.request).then(response => {
+        return response;
+    }).catch(function(err){
+      console.log(err)
+    });
+  }
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
       caches.match(event.request).then(cachedResponse => {
@@ -45,6 +57,8 @@ self.addEventListener("fetch", event => {
             return cache.put(event.request, response.clone()).then(() => {
               return response;
             });
+          }).catch(function(err){
+            console.log(err)
           });
         });
       })
