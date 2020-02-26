@@ -43,9 +43,9 @@ const config = {
           "theme-color": "#ffffff",
           start_url: "/",
           icons: [{
-            src: path.resolve("./public/assets/images/icons/android-chrome-192x192.png"),
+            src: path.resolve("./public/assets/images/icons/icons-192.png"),
             sizes: [192, 512],
-            destination: path.join("assets", "icons")
+            destination: path.join("assets", "images", "icons")
           }]
         })
       ]

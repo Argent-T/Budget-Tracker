@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="theme-color" content="#317EFB" />
-
+    <link rel="manifest" href="/manifest.webmanifest">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -22,6 +22,7 @@
       <form>
         <label for="t-name">Transaction Name:</label>
         <input type="text" id="t-name" placeholder="Name" />
+        <br>
 
         <label for="t-amount">Transaction Amount:</label>
         <input type="number" min="0" id="t-amount" placeholder="Amount" />
@@ -49,7 +50,16 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="/db.js"></script>
-    <script src="/index.js"></script>
+    <script src="/dist/db.bundle.js"></script>
+    <script src="/dist/app.bundle.js"></script>
+    <script type="text/javascript">
+      (function() {
+        if("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("./service-worker.js", { scope: "/" })
+            .then(() => console.log("Service Worker registered successfully."))
+            .catch(error => console.log("Service Worker registration failed:", error));
+        }
+      })();
+    </script>
   </body>
 </html>
